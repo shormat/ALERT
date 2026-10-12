@@ -1,0 +1,57 @@
+# Shared ALERT configuration — merged first, then overridden by stage-specific configs.
+
+# --- Device ---
+device: cuda          # "cuda" | "cpu"
+
+# --- BDD100K 10-class taxonomy ---
+num_classes: 10
+class_names:
+  - pedestrian        # 0
+  - rider             # 1
+  - car               # 2
+  - truck             # 3
+  - bus               # 4
+  - train             # 5
+  - motorcycle        # 6
+  - bicycle           # 7
+  - traffic light     # 8
+  - traffic sign      # 9
+
+# --- Data paths ---
+data:
+  raw_root:       data/raw
+  processed_root: data/processed
+  frames:         data/processed/bdd100k_frames
+  videos:         data/processed/bdd100k_videos
+  splits:         data/processed/splits
+
+# --- Detection thresholds ---
+detection:
+  conf_threshold: 0.25
+  iou_threshold:  0.45    # NMS IoU
+
+# --- Segmentation ---
+segmentation:
+  enabled: true
+  num_classes: 3          # 0=direct, 1=alternative, 2=background
+
+# --- Risk ---
+# class_weights and thresholds are hardcoded in risk_reasoner.py;
+# only ttc_lambda and history_window are read from config at runtime.
+risk:
+  ttc_lambda: 3.0          # TTC exponential decay constant λ (seconds)
+  history_window: 10       # frames of bbox area history per track
+  fps: 30.0                # assumed video frame rate for TTC conversion
+  class_weights:           # for reference only — not read from config at runtime
+    pedestrian:    1.00
+    rider:         0.90
+    motorcycle:    0.85
+    bicycle:       0.85
+    car:           0.70
+    truck:         0.70
+    bus:           0.70
+    train:         0.70
+    traffic light: 0.00
+    traffic sign:  0.00
+  warning_threshold:  0.30    # R(t) ≥ this → WARNING  (hardcoded in RiskResult)
+  critical_threshold: 0.60    # R(t) ≥ this → CRITICAL (hardcoded in RiskResult)

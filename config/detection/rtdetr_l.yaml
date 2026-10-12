@@ -1,0 +1,6 @@
+detection:
+  model: rtdetr-l
+  weights: checkpoints/detection/rtdetr-l_bdd100k/weights/best.pt
+  confidence_threshold: 0.35
+  nms_iou_threshold: 0.45
+  img_size: 640

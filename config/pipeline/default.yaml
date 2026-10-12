@@ -1,0 +1,10 @@
+pipeline:
+  enable_segmentation: true
+  enable_alerts: true
+  enable_risk: true
+  show_display: false
+  output: null          # null → falls back to $OUTPUT_ROOT/output.mp4 at runtime
+  output_fps: null
+  output_codec: mp4v
+  log_fps: true
+  max_frames: null

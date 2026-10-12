@@ -1,0 +1,10 @@
+tracking:
+  model: ocsort
+  use_cmc: true
+  det_thresh: 0.45
+  max_age: 30
+  min_hits: 3
+  iou_threshold: 0.3
+  delta_t: 3
+  asso_func: iou
+  inertia: 0.2

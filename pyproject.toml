@@ -1,0 +1,54 @@
+[project]
+name = "alert"
+version = "0.1.0"
+description = "Modular dashcam vision pipeline: detection, drivable segmentation, multi-object tracking, and risk assessment"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "Ihabe Guenfoudi" },
+    { name = "Said Hormat-Allah" },
+    { name = "Duy Vu Dinh" },
+]
+dependencies = [
+    "cython-bbox>=0.1.5",
+    "filterpy>=1.4.5",
+    "ipykernel>=7.2.0",
+    "kaggle>=2.1.0",
+    "kagglehub>=1.0.0",
+    "lap>=0.5.13",
+    "lapx>=0.9.4",
+    "loguru>=0.7.3",
+    "matplotlib>=3.10.9",
+    "numpy>=2.4.4",
+    "opencv-python>=4.13.0.92",
+    "pandas>=3.0.2",
+    "pillow>=12.2.0",
+    "pyarrow>=24.0.0",
+    "python-dotenv>=1.2.2",
+    "pyyaml>=6.0.3",
+    "requests>=2.33.1",
+    "scikit-learn>=1.8.0",
+    "segmentation-models-pytorch>=0.3",
+    "torch>=2.5.1",
+    "torchvision>=0.20.1",
+    "tqdm>=4.67.3",
+    "ultralytics>=8.4.41",
+    "wandb>=0.26.1",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu121"
+url = "https://download.pytorch.org/whl/cu121"
+explicit = true
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cu121", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+torchvision = [
+  { index = "pytorch-cu121", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

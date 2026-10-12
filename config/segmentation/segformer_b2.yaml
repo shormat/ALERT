@@ -1,0 +1,6 @@
+segmentation:
+  model: segformer
+  encoder: mit_b2
+  weights: checkpoints/segmentation/segformer_bdd100k/best.pt
+  img_size: [512, 1024]
+  num_classes: 3

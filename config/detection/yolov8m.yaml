@@ -1,0 +1,6 @@
+detection:
+  model: yolov8m
+  weights: checkpoints/detection/yolov8m_bdd100k/weights/best.pt
+  confidence_threshold: 0.35
+  nms_iou_threshold: 0.45
+  img_size: 640

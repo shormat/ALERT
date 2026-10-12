@@ -1,0 +1,160 @@
+# ── .gitkeep ──────────────────────────────────────────────────────────────────
+# Keep .gitkeep files so empty directories survive checkout.
+!.gitkeep
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ── Virtual environment ───────────────────────────────────────────────────────
+.venv/
+env/
+venv/
+
+# ── Test / coverage / lint caches ─────────────────────────────────────────────
+tests/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.tox/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# ── Notebooks ─────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── Data ──────────────────────────────────────────────────────────────────────
+# Track directory structure (.gitkeep), ignore content.
+data/**
+!data/**/
+!data/**/.gitkeep
+
+# ── Third-party repos cloned at setup time (ByteTrack, OC-SORT) ──────────────
+# vendor/ holds nested git repos cloned by the user (see README "Setup").
+# Track only the empty placeholder so the dir survives a fresh checkout.
+vendor/*
+!vendor/.gitkeep
+
+# ── Third-party pretrained weights (Ultralytics, SegFormer base) ─────────────
+pretrained/*
+!pretrained/detection/
+!pretrained/segmentation/
+pretrained/detection/*
+!pretrained/detection/.gitkeep
+pretrained/segmentation/*
+!pretrained/segmentation/.gitkeep
+
+# ── Our fine-tuned checkpoints (distributed via GitHub Releases) ─────────────
+checkpoints/*
+!checkpoints/detection/
+!checkpoints/segmentation/
+checkpoints/detection/*
+!checkpoints/detection/.gitkeep
+checkpoints/segmentation/*
+!checkpoints/segmentation/.gitkeep
+
+# ── Runtime outputs (videos, eval JSON, plots, logs) ─────────────────────────
+# Ignore everything under outputs/, but keep the four canonical subdirs as
+# empty placeholders (.gitkeep) so the layout is documented.
+outputs/**
+!outputs/detection_vis/
+!outputs/detection_vis/.gitkeep
+!outputs/eval/
+!outputs/eval/.gitkeep
+!outputs/segmentation_vis/
+!outputs/segmentation_vis/.gitkeep
+!outputs/videos/
+!outputs/videos/.gitkeep
+runs/
+logs/
+wandb/
+
+# ── Model weight files anywhere in the tree ──────────────────────────────────
+*.pt
+*.pth
+*.bin
+*.onnx
+*.safetensors
+
+# ── Library caches ────────────────────────────────────────────────────────────
+.ultralytics/
+.cache/
+
+# ── IDE / editor ──────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+*.log
+
+# ── Private / local ───────────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+.claude/
+CLAUDE.md
+docs/MACHINE-SPEC.txt
+docs/EDA.md
+
+# ── LaTeX submission (kept out of code repo) ─────────────────────────────────
+report/
+report.bak*/
+*.bak
+*.bak.*
+*.aux
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.out
+
+# ── Image / figure assets (live in report repo) ──────────────────────────────
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.tiff
+*.svg
+*.pdf
+*.eps
+# README hero image — keep tracked
+!alert_teaser.png
+
+# ── Video / archives (large binary; never in code repo) ──────────────────────
+*.mov
+*.mp4
+*.avi
+*.mkv
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.gz
+*.7z
+*.rar
+
+# ── Misc local scratch ────────────────────────────────────────────────────────
+obsolete/
+scratch/
+tmp/
+*.tmp

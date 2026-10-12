@@ -1,0 +1,7 @@
+segmentation:
+  model: deeplabv3plus
+  encoder: resnet101
+  encoder_weights: imagenet
+  weights: checkpoints/segmentation/deeplabv3plus_bdd100k/best.pt
+  img_size: [512, 1024]
+  num_classes: 3
